@@ -23,7 +23,7 @@ export const ContactsList = () => {
         dispatch(deleteContact(id)),
         dispatch(initialFilter())
     ]
-    const checkContacts = contacts > 0
+
     return <Container>
         {<List>
             {filterContacts.map(({id, name, number}) => (

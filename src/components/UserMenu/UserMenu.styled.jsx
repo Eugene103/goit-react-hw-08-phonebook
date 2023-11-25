@@ -1,29 +1,20 @@
-import { Form } from 'formik';
-import styled from 'styled-components';
+import styled from "styled-components";
 
-export const Conteiner = styled(Form)`
+
+export const Container = styled.div`
 display: flex;
-    flex-wrap: wrap;
-    flex-direction: column;
-    width: fit-content;
+    flex-wrap:wrap;
+    align-content: center;
+    align-items: center;
+    justify-content: space-around;
     gap: 20px;
-	margin-top: 10px;
-`
-export const Label = styled.label`
-display:flex;
-flex-direction: column;
-    flex-wrap: wrap;
-    gap: 5px;
-`
-export const Err = styled.p`
-color: red;
-    font-size: 13px;
+    font-size:20px;
 `
 export const Btn = styled.button`
   text-decoration: none;
   display: inline-block;
-  width: 200px;
-  height: 40px;
+  width: 105px;
+  height: 30px;
   line-height: 30px;
   border-radius: 30px;
   font-family: 'Montserrat', sans-serif;

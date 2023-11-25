@@ -1,13 +1,16 @@
-import { Form } from 'formik';
-import styled from 'styled-components';
+const { default: styled } = require("styled-components");
 
-export const Conteiner = styled(Form)`
+
+export const Container = styled.section`
+padding: 40px 20px 40px 20px;
+box-shadow: 0px 5px 8px 13px rgba(34, 60, 80, 0.21);
+`
+export const Form = styled.form`
 display: flex;
-    flex-wrap: wrap;
     flex-direction: column;
-    width: fit-content;
-    gap: 20px;
-	margin-top: 10px;
+    flex-wrap: nowrap;
+    align-items: center;
+    gap:15px;
 `
 export const Label = styled.label`
 display:flex;
@@ -15,19 +18,15 @@ flex-direction: column;
     flex-wrap: wrap;
     gap: 5px;
 `
-export const Err = styled.p`
-color: red;
-    font-size: 13px;
-`
 export const Btn = styled.button`
-  text-decoration: none;
+text-decoration: none;
   display: inline-block;
-  width: 200px;
+  width: 80px;
   height: 40px;
   line-height: 30px;
   border-radius: 30px;
   font-family: 'Montserrat', sans-serif;
-  font-size: 11px;
+  font-size: 12px;
   text-transform: uppercase;
   text-align: center;
   letter-spacing: 3px;

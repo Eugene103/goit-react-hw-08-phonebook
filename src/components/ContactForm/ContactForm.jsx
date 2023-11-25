@@ -2,7 +2,8 @@ import { Conteiner, Label, Err, Btn } from "./ContactForm.styled";
 import {  Formik, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useSelector, useDispatch } from 'react-redux';
-import { addContact } from "redux/operations";
+import { addContact } from "redux/contacts/operations";
+import { selectContacts } from "redux/contacts/selectors";
 
 
 const ContactSchema = Yup.object().shape({
@@ -17,7 +18,7 @@ const ContactSchema = Yup.object().shape({
 
 export const ContactForm = () => {
   const dispatch = useDispatch();
-  const contacts = useSelector(state => state.contacts.contacts);
+  const contacts = useSelector(selectContacts);
   
 const newContact = (newContact) => {
   const newNameToLower = newContact.name.toLocaleLowerCase()
@@ -42,6 +43,7 @@ const newContact = (newContact) => {
       }}
     >
       <Conteiner>
+
             <Label htmlFor="name">Name
           <Field id="name" name="name" placeholder="Jane" />    
           <ErrorMessage name="name">{msg => <Err>{msg}</Err>}</ErrorMessage>

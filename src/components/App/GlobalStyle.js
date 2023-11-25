@@ -38,7 +38,7 @@ ol {
 }
 `;
 
-export const Section = styled.section`
+export const Section = styled.main`
 padding: 20px
 `
 export const Container = styled.div`

@@ -1,18 +1,20 @@
 import { Container, Item, List, Btn } from "./ContactsList.styled";
-import { useDispatch, useSelector } from 'react-redux';
-import { initialFilter } from "redux/filterSlice";
-import { deleteContact, fetchContacts } from "redux/operations";
+import { useSelector, useDispatch } from 'react-redux';
+import { initialFilter } from "redux/filter/slice";
+import { deleteContact, fetchContacts} from "redux/contacts/operations";
+import { selectContacts } from "redux/contacts/selectors";
+import { selectFilter } from "redux/filter/selectors";
 import { useEffect } from "react";
 
-export const ContactsList = () => {
-const dispatch = useDispatch();
-const contacts = useSelector(state => state.contacts.contacts);
-const filter = useSelector(state => state.filter.filter)
 
-useEffect(() => {
-    dispatch(fetchContacts());
-  }, [dispatch])
-    
+export const ContactsList = () => {
+    const contacts = useSelector(selectContacts);
+    const filter = useSelector(selectFilter);
+    const dispatch = useDispatch();
+
+    useEffect(() => {
+        dispatch(fetchContacts())
+    }, [dispatch])
  const filterContacts = contacts.filter(
     (contact) => contact.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1,
   );
@@ -20,9 +22,10 @@ useEffect(() => {
     const removeContact = (id) => [
         dispatch(deleteContact(id)),
         dispatch(initialFilter())
-  ]
+    ]
+    const checkContacts = contacts > 0
     return <Container>
-        <List>
+        {<List>
             {filterContacts.map(({id, name, number}) => (
                 <Item key={id}>
                     <p>{name}:</p><p>{number}</p>
@@ -30,6 +33,7 @@ useEffect(() => {
                 </Item>
                 
             ))}
-    </List>
+    </List>} 
     </Container>
+       
 }

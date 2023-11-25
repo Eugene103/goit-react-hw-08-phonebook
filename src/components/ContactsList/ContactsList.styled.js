@@ -16,18 +16,30 @@ gap: 10px;
 export const Item = styled.li`
 display: flex;
 gap: 10px;
+    align-items: center;
+
 `
 export const Btn = styled.button`
--webkit-writing-mode: horizontal-tb !important;
-    -webkit-appearance: button;
-    border-color: rgb(216, 216, 216) rgb(209, 209, 209) rgb(186, 186, 186);
-    border-style: solid;
-    border-width: 1px;
-    padding: 1px 7px 2px;
-    text-rendering: auto;
-    color: initial;
-    display: inline-block;
-    text-align: start;
-    margin: 0em;
-    font: 400 11px system-ui;
+  text-decoration: none;
+  display: inline-block;
+  width: 60px;
+  height: 30px;
+  line-height: 20px;
+  border-radius: 30px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 7.5px;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 3px;
+  font-weight: 600;
+  color: #524f4e;
+  background: white;
+  box-shadow: 0 8px 15px rgba(0, 0, 0, .1);
+  transition: .3s;
+&:hover {
+  background: orange;
+  box-shadow: 0 15px 20px orange;
+  color: white;
+  transform: translateY(-7px);
+}
 `
